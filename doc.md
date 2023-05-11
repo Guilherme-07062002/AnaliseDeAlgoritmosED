@@ -51,7 +51,6 @@ Para uma melhor visualização desses dados, utilizamos duas ferramentas do pyth
 
 ![Exemplo de imagem](./imgs/cemMil.png)
 
-
 Da esquerda para a direita estão sendo exibidos os algoritmos considerados mais eficientes em ordenação.
 
 Analisando cada gráfico é possivel observar a diferença entre o tempo de execução de cada um e o quanto isso depende do tamanho da entrada.
