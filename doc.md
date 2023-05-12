@@ -23,26 +23,44 @@ Após criado o repositório no github para armazenar os códigos de cada algorit
 
 Antes de tudo, criamos na pasta do projeto um script em shell que automatiza a execução de cada algoritmo, por meio do comando `./cmd`.
 
+###### Saída do terminal que fornece interação com o usuário
 ![Exemplo de imagem](./imgs/print1.png)
 
 Dessa forma caso o programador deseje testar um único algoritmo não é necessário que a cada alteração o usuário tenha que executar o comando `g++ <nome-do-arquivo> -o executavel` para compilar o código, pois o script automatiza esse processo, resumindo a compilação e execução de todos os algoritmos a um único comando.
 
 No entanto, para a comparação, criamos um arquivo main.cpp que contém todas as funções que executam cada algoritmo, ele cria um único array com valores aleatórios e passa ele como paramêtro para cada método, por fim, exibe no terminal o tempo em segundos e milésimos com a duração de cada um.
 
+###### Trecho da saída no terminal, exibindo os tempos de execução para cada algoritmo
 ![Exemplo de imagem](./imgs/print2.png)
 
 ### Bibliotecas auxiliares
 
 A linguagem de programação C++ oferece muitas bibliotecas padrão que fornecem recursos poderosos e flexíveis para manipulação de dados, geração de números aleatórios e medição de tempo. Neste artigo, falaremos sobre as bibliotecas que utilizamos neste projeto:
 
-    1. Biblioteca <vector>
-    A biblioteca vector é usada para criar vetores dinâmicos, que são coleções de elementos de tamanho variável que podem ser adicionados ou removidos facilmente. Um vetor dinâmico é essencialmente um array que pode mudar de tamanho durante a execução do programa.Na execução do código de cada algoritmo, o usuário informa a quantidade de elementos do vetor que será ordenado, esse array é preenchido por meio de um loop for com números aleatórios entre 0 a 99.
+* Vector -
+    A biblioteca vector é usada para criar vetores dinâmicos, que são coleções de elementos de tamanho variável que podem ser adicionados ou removidos facilmente. Um vetor dinâmico é essencialmente um array que pode mudar de tamanho durante a execução do programa.
 
-    2. Biblioteca <random>
-    A biblioteca <random> é usada para gerar números aleatórios em C++. Ela oferece vários tipos de distribuição, como a distribuição uniforme, a distribuição normal e a distribuição de Poisson. Ela também oferece diferentes motores de geração de números aleatórios, que são usados para produzir sequências diferentes de números aleatórios.
-    Para que fosse possivel inserirmos dinâmicamente os elementos do array a cada repetição do laço, utilizamos a biblioteca `vector` por meio do método push_back() que adiciona cada valor ao fim do array. Dentro do parametro da função é passado o número aleatório armazenado, este que é gerado graças a importação do `random`.
+* Random -
+    É usada para gerar números aleatórios em C++. Ela oferece vários tipos de distribuição, como a distribuição uniforme, a distribuição normal e a distribuição de Poisson. Ela também oferece diferentes motores de geração de números aleatórios, que são usados para produzir sequências diferentes de números aleatórios.
+    
+
+* Chrono -
+    É usada para lidar com tempo e medir a duração de um programa. Ela fornece um conjunto de classes para lidar com diferentes unidades de tempo e realizar operações com elas.
+
+Abaixo um exemplo de como coletamos o tempo de execução das funções:
+
+```C++
+auto start = std::chrono::high_resolution_clock::now(); // marca o tempo de início
+bubbleSort(lista); // executa o algoritmo que queremos medir o tempo
+auto end = std::chrono::high_resolution_clock::now(); // marca o tempo de término
+std::chrono::duration<double, std::milli> diff = end - start; // calcula a diferença entre o tempo de início e o tempo de término em milissegundos
+```
 
 Dessa forma o algoritmo realiza a cada execução a ordenação de um vetor de números aleatórios com a quantidade de elementos que o usuário informar.
+
+Na execução do código de cada algoritmo, o usuário informa a quantidade de elementos do vetor que será ordenado, esse array é preenchido por meio de um loop for com números aleatórios entre 0 a 99.
+
+Para que fosse possivel inserirmos dinâmicamente os elementos do array a cada repetição do laço, utilizamos a biblioteca `vector` por meio do método push_back() que adiciona cada valor ao fim do array. Dentro do parametro da função é passado o número aleatório armazenado, este que é gerado graças a importação do `random`.
 
 Além disso para obtermos o tempo de execução de cada algoritmo, utilizamos o `chrono`, aonde por meio deste delimitamos o trecho específico de código em que o tempo seria capturado, marcando o ponto de início e fim da execução do algoritmo.
 
@@ -52,28 +70,43 @@ Após isso, é realizado o cálculo da diferença entre o intervalo cronometrado
 
 Realizamos os testes com cada algoritmo, armazenando em uma planilha o tempo necessário em milissegundos de cada execução para vetores com 1000(Mil), 10.000(Dez mil) e 100.000(Cem mil) elementos.
 
+###### Tabela com os dados coletados
+
 |                | Mil    | Dez Mil | Cem Mil |
 | -------------- | ------ | ------- | ------- |
-| Bubble Sort    | 10.801 | 733.049 | 534.219 |
-| Selection Sort | 3.382  | 226.285 | 222.929 |
-| Insertion Sort | 1.625  | 146.256 | 180.982 |
-| Shell Sort     | 0.800  | 64.380  | 78.750  |
-| Quick Sort     | 2.292  | 28.781  | 72.587  |
-| Merge Sort     | 0.461  | 4.725   | 62.526  |
+| Bubble Sort    | 13.193 | 873.255 | 851.44  |
+| Selection Sort | 5.294  | 262.964 | 307.999 |
+| Insertion Sort | 2.719  | 175.022 | 277.443 |
+| Shell Sort     | 0.257  | 2.555   | 29.362  |
+| Quick Sort     | 0.905  | 35.203  | 156.006 |
+| Merge Sort     | 0.798  | 6.111   | 64.970  |
 
 
 Para uma melhor visualização desses dados, utilizamos o python com os recursos do matplotlib e pandas para a geração de gráficos:
 
 ###### Gráfico 1 -
+
 ![Exemplo de imagem](./imgs/mil.png)
 
 ###### Gráfico 2 -
+
 ![Exemplo de imagem](./imgs/dezMil.png)
 
 ###### Gráfico 3 -
+
 ![Exemplo de imagem](./imgs/cemMil.png)
 
 Da esquerda para a direita estão sendo exibidos os algoritmos considerados mais eficientes em ordenação.
+
+Nesta análise, temos os tempos de execução, em milissegundos, de seis diferentes algoritmos de ordenação (Bubble Sort, Selection Sort, Insertion Sort, Shell Sort, Quick Sort e Merge Sort) para três tamanhos de listas diferentes (1.000, 10.000 e 100.000 elementos).
+
+Analisando os resultados, podemos observar que o Bubble Sort é o algoritmo de ordenação mais lento em todos os casos, apresentando um tempo de execução muito maior do que os outros algoritmos. Mesmo em listas com apenas 1.000 elementos, o tempo de execução do Bubble Sort já é significativamente maior do que os outros algoritmos.
+
+Já o Selection Sort, Insertion Sort, Shell Sort e Quick Sort apresentam tempos de execução semelhantes em listas com 1.000 elementos, mas a diferença começa a se destacar em listas maiores. O Quick Sort se mostra muito eficiente em listas de 10.000 e 100.000 elementos, apresentando tempos de execução muito menores do que os outros algoritmos. O Shell Sort também apresenta um bom desempenho em listas grandes, mas é superado pelo Quick Sort.
+
+Por fim, temos o Merge Sort, que se destaca por apresentar tempos de execução menores em listas com 100.000 elementos em comparação com os outros algoritmos, exceto pelo Quick Sort. O Merge Sort é um algoritmo muito eficiente para lidar com listas grandes, mas pode não ser a melhor opção em listas menores.
+
+Em resumo, esta análise reforça a importância de escolher um algoritmo de ordenação adequado para o tamanho da lista a ser ordenada. Para listas menores, a diferença de tempo de execução entre os algoritmos é menor e pode não ter um impacto significativo, mas em listas maiores, a escolha do algoritmo certo pode fazer uma grande diferença na eficiência da execução. O Quick Sort se mostra como uma opção muito eficiente em geral, mas é importante avaliar o tamanho da lista a ser ordenada e considerar outras opções como o Merge Sort para listas maiores.
 
 ## Conclusão
 
