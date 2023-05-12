@@ -14,7 +14,11 @@ Antes de tudo, criamos na pasta do projeto um script em shell que automatiza a e
 
 ![Exemplo de imagem](./imgs/print1.png)
 
-Dessa forma não é necessário que a cada alteração o usuário tenha que executar o comando `g++ <nome-do-arquivo> -o executavel` para compilar o código, pois o script automatiza esse processo, resumindo a compilação e execução de todos os algoritmos a um único comando.
+Dessa forma caso o programador deseje testar um único algoritmo não é necessário que a cada alteração o usuário tenha que executar o comando `g++ <nome-do-arquivo> -o executavel` para compilar o código, pois o script automatiza esse processo, resumindo a compilação e execução de todos os algoritmos a um único comando.
+
+No entanto, para a comparação, criamos um arquivo main.cpp que contém todas as funções que executam cada algoritmo, ele cria um único array com valores aleatórios e passa ele como paramêtro para cada método, por fim, exibe no terminal o tempo em segundos e milésimos com a duração de cada um.
+
+![Exemplo de imagem](./imgs/print2.png)
 
 ### Bibliotecas auxiliares
 
@@ -42,12 +46,15 @@ Realizamos os testes com cada algoritmo, armazenando em uma planilha o tempo nec
 | Merge Sort     | 0.461  | 4.725   | 62.526  |
 
 
-Para uma melhor visualização desses dados, utilizamos duas ferramentas do python matplotlib e pandas para a geração de gráficos:
+Para uma melhor visualização desses dados, utilizamos o python com os recursos do matplotlib e pandas para a geração de gráficos:
 
+###### Gráfico 1 -
 ![Exemplo de imagem](./imgs/mil.png)
 
+###### Gráfico 2 -
 ![Exemplo de imagem](./imgs/dezMil.png)
 
+###### Gráfico 3 -
 ![Exemplo de imagem](./imgs/cemMil.png)
 
 Da esquerda para a direita estão sendo exibidos os algoritmos considerados mais eficientes em ordenação.
