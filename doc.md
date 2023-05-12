@@ -4,6 +4,17 @@
 
 Durante a disciplina de estrutura de dados ministrada no 3° período do curso de Tecnologia em Sistemas para Internet (TSI) foi proposto que implementássemos os algoritmos de ordenação apresentados em sala, e que apartir destes fosse realizada uma análise e comparação do tempo de execução de cada um, de forma que se torne possivel visualizar de forma mais clara a discrepância entre a eficiência de cada algoritmo.
 
+### Algoritmos de Ordenação
+
+Algoritmos de ordenação são uma parte fundamental da ciência da computação e da programação. Eles permitem que os programadores organizem e classifiquem grandes quantidades de dados de forma rápida e eficiente. Dentre os muitos algoritmos de ordenação disponíveis, alguns dos mais comuns incluem o Bubble Sort, Selection Sort, Insertion Sort, Shell Sort, Quick Sort e Merge Sort. Neste artigo, vamos examinar cada um desses algoritmos em detalhes.
+
+    1. Bubble Sort O Bubble Sort é um algoritmo simples de ordenação que funciona comparando elementos adjacentes em uma lista e trocando-os se estiverem fora de ordem. Ele continua fazendo essas comparações e trocas até que toda a lista esteja em ordem. Embora seja fácil de entender e implementar, o Bubble Sort tem uma complexidade de tempo de O(n²), o que significa que seu desempenho pode ser bastante lento em listas grandes.
+    2. Selection Sort O Selection Sort é um algoritmo que começa encontrando o menor elemento em uma lista e colocando-o na primeira posição. Em seguida, ele encontra o próximo menor elemento e o coloca na segunda posição, e assim por diante até que toda a lista esteja em ordem. Como o Bubble Sort, o Selection Sort também tem uma complexidade de tempo de O(n²), o que o torna ineficiente em listas grandes.  
+    3. Insertion Sort O Insertion Sort é um algoritmo de ordenação que funciona "inserindo" elementos em uma lista já ordenada. Ele começa com o primeiro elemento e o considera uma lista ordenada. Em seguida, ele pega o próximo elemento e o insere na posição correta na lista ordenada. Ele continua fazendo isso para cada elemento subsequente até que toda a lista esteja em ordem. O Insertion Sort tem uma complexidade de tempo média de O(n²), mas é mais rápido do que o Bubble Sort e o Selection Sort em listas pequenas.  
+    4. Shell Sort O Shell Sort é um algoritmo de ordenação que melhora o desempenho do Insertion Sort, dividindo a lista em subgrupos menores e ordenando-os separadamente. Ele começa dividindo a lista em subgrupos de elementos que estão distantes um do outro e, em seguida, ordena cada subgrupo usando o Insertion Sort. Em seguida, ele reduz a distância entre os elementos nos subgrupos e repete o processo de ordenação até que toda a lista esteja em ordem. O Shell Sort tem uma complexidade de tempo média de O(n log n), o que o torna mais rápido do que o Bubble Sort, o Selection Sort e o Insertion Sort em listas maiores.  
+    5. Quick Sort O Quick Sort é um algoritmo de ordenação que utiliza uma abordagem "dividir e conquistar". Ele divide a lista em dois subconjuntos menores, um com elementos maiores do que um valor escolhido (pivô) e outro com elementos menores. Em seguida, ele ordena recursivamente cada subconjunto e os junta para produzir uma lista ordenada completa. O Quick Sort é um dos algoritmos de ordenação mais eficientes, com uma complexidade de tempo média de O(n log n), mas pode ser lento em listas quase ordenadas.  
+    6. Merge Sort O Merge Sort é um algoritmo de ordenação que utiliza uma abordagem "dividir e conquistar". Ele divide a lista em subconjuntos menores, recursivamente, até que a lista seja reduzida a apenas um elemento. Em seguida, ele junta esses subconjuntos, ordenando-os, até que a lista original esteja completamente ordenada. Esse processo de "dividir e conquistar" permite que o Merge Sort alcance uma complexidade de tempo média de O(n log n). O processo de junção dos subconjuntos é chamado de "merge". Ele envolve comparar os primeiros elementos de cada subconjunto e colocar o menor deles na lista de saída. O processo é repetido até que todos os elementos dos subconjuntos tenham sido adicionados à lista de saída.
+
 ## Metodologia
 
 ### Automatização com shell script
@@ -22,9 +33,14 @@ No entanto, para a comparação, criamos um arquivo main.cpp que contém todas a
 
 ### Bibliotecas auxiliares
 
-Na execução do código de cada algoritmo, o usuário informa a quantidade de elementos do vetor que será ordenado, esse array é preenchido por meio de um loop for com números aleatórios entre 0 a 99.
+A linguagem de programação C++ oferece muitas bibliotecas padrão que fornecem recursos poderosos e flexíveis para manipulação de dados, geração de números aleatórios e medição de tempo. Neste artigo, falaremos sobre as bibliotecas que utilizamos neste projeto:
 
-Para que fosse possivel inserirmos dinâmicamente os elementos do array a cada repetição do laço, utilizamos a biblioteca `vector` por meio do método push_back() que adiciona cada valor ao fim do array. Dentro do parametro da função é passado o número aleatório armazenado, este que é gerado graças a importação do `random`.
+    1. Biblioteca <vector>
+    A biblioteca vector é usada para criar vetores dinâmicos, que são coleções de elementos de tamanho variável que podem ser adicionados ou removidos facilmente. Um vetor dinâmico é essencialmente um array que pode mudar de tamanho durante a execução do programa.Na execução do código de cada algoritmo, o usuário informa a quantidade de elementos do vetor que será ordenado, esse array é preenchido por meio de um loop for com números aleatórios entre 0 a 99.
+
+    2. Biblioteca <random>
+    A biblioteca <random> é usada para gerar números aleatórios em C++. Ela oferece vários tipos de distribuição, como a distribuição uniforme, a distribuição normal e a distribuição de Poisson. Ela também oferece diferentes motores de geração de números aleatórios, que são usados para produzir sequências diferentes de números aleatórios.
+    Para que fosse possivel inserirmos dinâmicamente os elementos do array a cada repetição do laço, utilizamos a biblioteca `vector` por meio do método push_back() que adiciona cada valor ao fim do array. Dentro do parametro da função é passado o número aleatório armazenado, este que é gerado graças a importação do `random`.
 
 Dessa forma o algoritmo realiza a cada execução a ordenação de um vetor de números aleatórios com a quantidade de elementos que o usuário informar.
 
