@@ -9,10 +9,15 @@ Durante a disciplina de estrutura de dados ministrada no 3° período do curso d
 Algoritmos de ordenação são uma parte fundamental da ciência da computação e da programação. Eles permitem que os programadores organizem e classifiquem grandes quantidades de dados de forma rápida e eficiente. Dentre os muitos algoritmos de ordenação disponíveis, alguns dos mais comuns incluem o Bubble Sort, Selection Sort, Insertion Sort, Shell Sort, Quick Sort e Merge Sort. Neste artigo, vamos examinar cada um desses algoritmos em detalhes.
 
     1. Bubble Sort O Bubble Sort é um algoritmo simples de ordenação que funciona comparando elementos adjacentes em uma lista e trocando-os se estiverem fora de ordem. Ele continua fazendo essas comparações e trocas até que toda a lista esteja em ordem. Embora seja fácil de entender e implementar, o Bubble Sort tem uma complexidade de tempo de O(n²), o que significa que seu desempenho pode ser bastante lento em listas grandes.
+   
     2. Selection Sort O Selection Sort é um algoritmo que começa encontrando o menor elemento em uma lista e colocando-o na primeira posição. Em seguida, ele encontra o próximo menor elemento e o coloca na segunda posição, e assim por diante até que toda a lista esteja em ordem. Como o Bubble Sort, o Selection Sort também tem uma complexidade de tempo de O(n²), o que o torna ineficiente em listas grandes.  
-    3. Insertion Sort O Insertion Sort é um algoritmo de ordenação que funciona "inserindo" elementos em uma lista já ordenada. Ele começa com o primeiro elemento e o considera uma lista ordenada. Em seguida, ele pega o próximo elemento e o insere na posição correta na lista ordenada. Ele continua fazendo isso para cada elemento subsequente até que toda a lista esteja em ordem. O Insertion Sort tem uma complexidade de tempo média de O(n²), mas é mais rápido do que o Bubble Sort e o Selection Sort em listas pequenas.  
-    4. Shell Sort O Shell Sort é um algoritmo de ordenação que melhora o desempenho do Insertion Sort, dividindo a lista em subgrupos menores e ordenando-os separadamente. Ele começa dividindo a lista em subgrupos de elementos que estão distantes um do outro e, em seguida, ordena cada subgrupo usando o Insertion Sort. Em seguida, ele reduz a distância entre os elementos nos subgrupos e repete o processo de ordenação até que toda a lista esteja em ordem. O Shell Sort tem uma complexidade de tempo média de O(n log n), o que o torna mais rápido do que o Bubble Sort, o Selection Sort e o Insertion Sort em listas maiores.  
+   
+    3. Insertion Sort O Insertion Sort é um algoritmo de ordenação que funciona "inserindo" elementos em uma lista já ordenada. Ele começa com o primeiro elemento e o considera uma lista ordenada. Em seguida, ele pega o próximo elemento e o insere na posição correta na lista ordenada. Ele continua fazendo isso para cada elemento subsequente até que toda a lista esteja em ordem. O Insertion Sort tem uma complexidade de tempo média de O(n²), mas é mais rápido do que o Bubble Sort e o Selection Sort em listas pequenas. 
+    
+    4. Shell Sort O Shell Sort é um algoritmo de ordenação que melhora o desempenho do Insertion Sort, dividindo a lista em subgrupos menores e ordenando-os separadamente. Ele começa dividindo a lista em subgrupos de elementos que estão distantes um do outro e, em seguida, ordena cada subgrupo usando o Insertion Sort. Em seguida, ele reduz a distância entre os elementos nos subgrupos e repete o processo de ordenação até que toda a lista esteja em ordem. O Shell Sort tem uma complexidade de tempo média de O(n log n), o que o torna mais rápido do que o Bubble Sort, o Selection Sort e o Insertion Sort em listas maiores.
+     
     5. Quick Sort O Quick Sort é um algoritmo de ordenação que utiliza uma abordagem "dividir e conquistar". Ele divide a lista em dois subconjuntos menores, um com elementos maiores do que um valor escolhido (pivô) e outro com elementos menores. Em seguida, ele ordena recursivamente cada subconjunto e os junta para produzir uma lista ordenada completa. O Quick Sort é um dos algoritmos de ordenação mais eficientes, com uma complexidade de tempo média de O(n log n), mas pode ser lento em listas quase ordenadas.  
+   
     6. Merge Sort O Merge Sort é um algoritmo de ordenação que utiliza uma abordagem "dividir e conquistar". Ele divide a lista em subconjuntos menores, recursivamente, até que a lista seja reduzida a apenas um elemento. Em seguida, ele junta esses subconjuntos, ordenando-os, até que a lista original esteja completamente ordenada. Esse processo de "dividir e conquistar" permite que o Merge Sort alcance uma complexidade de tempo média de O(n log n). O processo de junção dos subconjuntos é chamado de "merge". Ele envolve comparar os primeiros elementos de cada subconjunto e colocar o menor deles na lista de saída. O processo é repetido até que todos os elementos dos subconjuntos tenham sido adicionados à lista de saída.
 
 ## Metodologia
@@ -24,6 +29,7 @@ Após criado o repositório no github para armazenar os códigos de cada algorit
 Antes de tudo, criamos na pasta do projeto um script em shell que automatiza a execução de cada algoritmo, por meio do comando `./cmd`.
 
 ###### Saída do terminal que fornece interação com o usuário
+
 ![Exemplo de imagem](./imgs/print1.png)
 
 Dessa forma caso o programador deseje testar um único algoritmo não é necessário que a cada alteração o usuário tenha que executar o comando `g++ <nome-do-arquivo> -o executavel` para compilar o código, pois o script automatiza esse processo, resumindo a compilação e execução de todos os algoritmos a um único comando.
@@ -31,6 +37,7 @@ Dessa forma caso o programador deseje testar um único algoritmo não é necess�
 No entanto, para a comparação, criamos um arquivo main.cpp que contém todas as funções que executam cada algoritmo, ele cria um único array com valores aleatórios e passa ele como paramêtro para cada método, por fim, exibe no terminal o tempo em segundos e milésimos com a duração de cada um.
 
 ###### Trecho da saída no terminal, exibindo os tempos de execução para cada algoritmo
+
 ![Exemplo de imagem](./imgs/print2.png)
 
 ### Bibliotecas auxiliares
@@ -42,7 +49,6 @@ A linguagem de programação C++ oferece muitas bibliotecas padrão que fornecem
 
 * Random -
     É usada para gerar números aleatórios em C++. Ela oferece vários tipos de distribuição, como a distribuição uniforme, a distribuição normal e a distribuição de Poisson. Ela também oferece diferentes motores de geração de números aleatórios, que são usados para produzir sequências diferentes de números aleatórios.
-    
 
 * Chrono -
     É usada para lidar com tempo e medir a duração de um programa. Ela fornece um conjunto de classes para lidar com diferentes unidades de tempo e realizar operações com elas.
@@ -72,15 +78,15 @@ Realizamos os testes com cada algoritmo, armazenando em uma planilha o tempo nec
 
 ###### Tabela com os dados coletados
 
-|                | Mil    | Dez Mil | Cem Mil |
-| -------------- | ------ | ------- | ------- |
-| Bubble Sort    | 13.193 | 873.255 | 851.44  |
-| Selection Sort | 5.294  | 262.964 | 307.999 |
-| Insertion Sort | 2.719  | 175.022 | 277.443 |
-| Shell Sort     | 0.257  | 2.555   | 29.362  |
-| Quick Sort     | 0.905  | 35.203  | 156.006 |
-| Merge Sort     | 0.798  | 6.111   | 64.970  |
 
+|                | Mil   | Dez Mil | Cem Mil |
+| -------------- | ----- | ------- | ------- |
+| Bubble Sort    | 13.1  | 873.2   | 851.44  |
+| Selection Sort | 5.29  | 262.9   | 307.99  |
+| Insertion Sort | 2.71  | 175.0   | 277.44  |
+| Shell Sort     | 0.257 | 2.55    | 29.3    |
+| Quick Sort     | 0.90  | 0.16    | 6.888   |
+| Merge Sort     | 0.79  | 2.8     | 1.58    |
 
 Para uma melhor visualização desses dados, utilizamos o python com os recursos do matplotlib e pandas para a geração de gráficos:
 
